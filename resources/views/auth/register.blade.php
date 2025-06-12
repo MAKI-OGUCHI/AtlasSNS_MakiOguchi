@@ -1,44 +1,26 @@
-<!-- extends('layouts.logout') -->
-
-<!-- section('content') -->
-
-@if($errors->any())
-<div class="register_error">
-    <ul>
-        @foreach($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div><!-- /.register_error -->
-@endif
-
 <x-logout-layout>
     <!-- 適切なURLを入力してください -->
-     <div class="form">
-    {!! Form::open(['url' => '/register']) !!}
+{!! Form::open(['url' => '〇〇']) !!}
 
-    <p>新規ユーザー登録</p>
+<h2>新規ユーザー登録</h2>
 
-    <div class="register">
-    {{ Form::label('ユーザー名') }}
-    {{ Form::text('UserName',null,['class' => 'input']) }}
+{{ Form::label('ユーザー名') }}
+{{ Form::text('username',null,['class' => 'input']) }}
 
-    {{ Form::label('メールアドレス') }}
-    {{ Form::email('MailAdress',null,['class' => 'input']) }}
+{{ Form::label('メールアドレス') }}
+{{ Form::email('email',null,['class' => 'input']) }}
 
-    {{ Form::label('パスワード') }}
-    {{ Form::text('Password',null,['class' => 'input']) }}
+{{ Form::label('パスワード') }}
+{{ Form::text('password',null,['class' => 'input']) }}
 
-    {{ Form::label('パスワード確認') }}
-    {{ Form::text('PasswordConfirm',null,['class' => 'input']) }}
+{{ Form::label('パスワード確認') }}
+{{ Form::text('password_confirmation',null,['class' => 'input']) }}
 
-    {{ Form::submit('登録'),['class' => 'success'] }}
-    </div>
+{{ Form::submit('登録') }}
 
-    <p><a href="login">ログイン画面へ戻る</a></p>
+<p><a href="login">ログイン画面へ戻る</a></p>
 
-    {!! Form::close() !!}
-    </div>
+{!! Form::close() !!}
 
-    <!-- endsection -->
+
 </x-logout-layout>

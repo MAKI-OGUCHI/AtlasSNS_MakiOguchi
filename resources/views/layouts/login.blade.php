@@ -27,20 +27,11 @@
 <body>
   <header>
     @include('layouts.navigation')
-    <div id="head">
-      <h1><a href="/top"><img src="images/atlas.png" alt=""></a></h1>
-      <div>
-        <div>
-          <p>{{session('user')}}<img src=>
-          </p>
-        </div>
-      </div>
-    </div>
   </header>
   <!-- Page Content -->
   <div id="row">
     <div id="container">
-      <!-- {$slot}@yield('content') -->
+      {{ $slot }}
     </div>
     <div id="side-bar">
       <div id="confirm">

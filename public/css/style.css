@@ -1,12 +1,11 @@
 @charset "utf-8";
-/* html{
+html{
 }
 body{
-} */
+}
 /* header */
 header{
-    padding:10px;
-    background:#186ac9;
+    background:#186AC9;
 }
 
 /* main content */
@@ -21,5 +20,3 @@ header{
     flex: 0 0 19%;
     border-left: 1px solid #727272;
 }
-
-#head{align-items:center;}
