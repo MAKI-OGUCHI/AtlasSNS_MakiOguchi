@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\FollowsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +26,9 @@ Route::get('top', [PostsController::class, 'index']);
 
 Route::get('profile', [ProfileController::class, 'profile']);
 
-Route::get('search', [UsersController::class, 'index']);
+Route::get('search', [UsersController::class, 'users']);
 
-Route::get('follow-list', [PostsController::class, 'index']);
-Route::get('follower-list', [PostsController::class, 'index']);
+Route::get('follow-list', [FollowsController::class, 'followList']);
+Route::get('follower-list', [FollowsController::class, 'followerList']);
+
+Route::get('logout', [AuthenticatedSessionController::class, 'create']);
