@@ -23,6 +23,7 @@ use App\Http\Controllers\FollowsController;
 require __DIR__ . '/auth.php';
 
 Route::get('top', [PostsController::class, 'index']);
+Route::post('post/create',[PostsController::class,'create']);
 
 Route::get('profile', [ProfileController::class, 'profile']);
 
