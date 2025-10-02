@@ -8,12 +8,14 @@ use App\Models\Post;
 
 use App\Models\User;
 
+use Illuminate\Http\RedirectResponse;
+
 class PostsController extends Controller
 {
     //
     public function index()
-    {
-        return view('posts.index');
+    {$posts=Post::get();
+        return view('posts.index',['posts'=>$posts]);
     }
 
     public function create(Request $request){
@@ -28,11 +30,14 @@ class PostsController extends Controller
         $request->validate([
             'Post' => 'required|min:1|max:150',
         ]);
-        User::create([
+        Post::create([
             'post' => $request->Post,
         ]);
         Session::put('post', $request->Post);
         return redirect('');
     }
-
+public function delete($id){
+    Post::where('id',$id)->delete();
+    return redirect('/top');
+}
 }

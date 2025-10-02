@@ -23,3 +23,6 @@ header{
 }
 
 #head{align-items:center;}
+
+
+.delete-icon:hover{content: url("/images/trash-h.png");}

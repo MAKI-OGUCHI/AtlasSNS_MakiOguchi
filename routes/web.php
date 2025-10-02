@@ -24,7 +24,7 @@ require __DIR__ . '/auth.php';
 
 Route::get('top', [PostsController::class, 'index']);
 Route::post('post/create',[PostsController::class,'create']);
-
+Route::get('delete/{id}',[PostsController::class,'delete']);
 Route::get('profile', [ProfileController::class, 'profile']);
 
 Route::get('search', [UsersController::class, 'users']);
