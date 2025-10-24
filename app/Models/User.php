@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Auth;
 
 class User extends Authenticatable
 {
@@ -34,5 +35,24 @@ class User extends Authenticatable
     ];
     public function posts() {
         return $this -> hasMany(post::class);
+    }
+    public function following_user(){
+        return $this -> belongsToMany(user::class,'follows','following_id','followed_id');
+    }
+    public function followed_user(){
+        return $this -> belongsToMany(user::class,'follows','followed_id','following_id');
+    }
+    public function isFollowing($id){
+        $id = $this -> id ;
+        $isFollowing = (bool) Auth::user() -> following_user() -> where('followed_id',$id) -> first();
+        return $isFollowing;
+    }
+    public function follow(Int $auth_id){
+        return $this -> following_user() -> attach($auth_id);
+
+    }
+    public function unfollow(Int $auth_id){
+        return $this -> following_user() -> attach($auth_id);
+
     }
 }

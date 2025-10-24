@@ -27,9 +27,10 @@ Route::post('post/create',[PostsController::class,'create']);
 Route::get('delete/{id}',[PostsController::class,'delete']);
 Route::get('profile', [ProfileController::class, 'profile']);
 
-Route::get('search', [UsersController::class, 'users']);
+Route::get('search', [UsersController::class, 'search']);
+Route::post('userSearch',[UsersController::class,'userSearch']);
 
 Route::get('follow-list', [FollowsController::class, 'followList']);
 Route::get('follower-list', [FollowsController::class, 'followerList']);
-
+Route::post('{id}/follow',[UsersController::class, 'follow']) -> name('follow');
 Route::get('logout', [AuthenticatedSessionController::class, 'create']);
