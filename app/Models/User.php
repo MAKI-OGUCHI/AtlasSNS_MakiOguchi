@@ -43,16 +43,17 @@ class User extends Authenticatable
         return $this -> belongsToMany(user::class,'follows','followed_id','following_id');
     }
     public function isFollowing($id){
-        $id = $this -> id ;
-        $isFollowing = (bool) Auth::user() -> following_user() -> where('followed_id',$id) -> first();
-        return $isFollowing;
+        return (bool) $this -> following_user() -> where('followed_id',$id) -> first(['follows.id']);
+        // $id = $this -> id ;
+        // $isFollowing = (bool) Auth::user() -> following_user() -> where('followed_id',$id) -> first();
+        // return $isFollowing;
     }
     public function follow(Int $auth_id){
         return $this -> following_user() -> attach($auth_id);
 
     }
-    public function unfollow(Int $auth_id){
-        return $this -> following_user() -> attach($auth_id);
+    public function unfollow($user_id) {
+       return $this->following_user()->detach($user_id);
+}
 
-    }
 }

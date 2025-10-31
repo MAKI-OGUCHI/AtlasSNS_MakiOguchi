@@ -33,4 +33,5 @@ Route::post('userSearch',[UsersController::class,'userSearch']);
 Route::get('follow-list', [FollowsController::class, 'followList']);
 Route::get('follower-list', [FollowsController::class, 'followerList']);
 Route::post('{id}/follow',[UsersController::class, 'follow']) -> name('follow');
+Route::delete('{id}/unfollow', [UsersController::class, 'unfollow'])->name('unfollow');
 Route::get('logout', [AuthenticatedSessionController::class, 'create']);

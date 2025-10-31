@@ -27,4 +27,12 @@ return back();
 }
 
     }
+    public function unfollow($id){
+        $following_id = Auth::user();
+$isFollowing = $following_id -> isFollowing($id);
+if($isFollowing){
+    $following_id -> unfollow($id);
+return back();
+    }
+}
 }

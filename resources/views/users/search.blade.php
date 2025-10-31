@@ -18,7 +18,9 @@
   <form action="{{route('follow',['id' => $user -> id])}}" method="post">
     @csrf
   <button type="submit" class="btn btn-primary">フォローする</button></form>
-  @else <form action="follow">
+  @else <form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
+    @csrf
+@method('DELETE')
   <button type="submit" class="btn btn-danger">フォロー解除</button></form>
   @endif
 @endforeach
