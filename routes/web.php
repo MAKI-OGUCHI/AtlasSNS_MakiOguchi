@@ -26,6 +26,7 @@ Route::get('top', [PostsController::class, 'index']);
 Route::post('post/create',[PostsController::class,'create']);
 Route::get('delete/{id}',[PostsController::class,'delete']);
 Route::get('profile', [ProfileController::class, 'profile']);
+Route::post('edit',[ProfileController::class,'edit']);
 
 Route::get('search', [UsersController::class, 'search']);
 Route::post('userSearch',[UsersController::class,'userSearch']);
