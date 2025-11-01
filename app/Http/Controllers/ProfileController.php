@@ -23,7 +23,7 @@ class ProfileController extends Controller
             //'NewPassword' => 'required|min:8|max:20|confirmed',
             //'NewPasswordConfirmation' => 'required|min:8|max:20',
             'Bio' => 'max:150',
-            'IconImage' => '',
+            'IconImage' => 'nullable|image|mimes:jpg,png,bmp,gif,svg'
         ]);
         $image = Auth::user() -> icon_image;
         if($request -> hasFile('icon_image')){
