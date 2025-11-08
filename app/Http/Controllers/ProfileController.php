@@ -26,11 +26,11 @@ class ProfileController extends Controller
             'IconImage' => 'nullable|image|mimes:jpg,png,bmp,gif,svg'
         ]);
         $image = Auth::user() -> icon_image;
-        if($request -> hasFile('icon_image')){
-            if ($user->IconImage) {Storage::delete($user->icon_image);}
+        if($request -> hasFile('IconImage')){
+            //if ($user->IconImage) {Storage::delete($user->icon_image);}
             $image = $request -> file('IconImage') -> store('public/images');
         }
-        dd($image);
+
         Auth::user() -> update([
             // 'username' => $request -> input('UserName'),
             'email' => $request -> input('MailAddress'),
