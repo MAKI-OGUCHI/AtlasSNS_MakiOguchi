@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Post;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
@@ -41,4 +43,10 @@ class ProfileController extends Controller
         return redirect('/top');
 
     }
+    public function list($id){
+        $user = User::where("id",$id) -> first();
+        $post = Post::where("user_id",$id) -> get();
+        return view('profiles.userprofile',['user' => $user,'post' => $post]);
+    }
+
 }
