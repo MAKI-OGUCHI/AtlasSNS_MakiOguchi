@@ -44,20 +44,20 @@
     </div>
     <div id="side-bar">
       <div id="confirm">
-        <p>{{ Auth::user() -> username }}さんの</p>
-        <div>
+        <p class="username">{{ Auth::user() -> username }}さんの</p>
+        <div class="list-number">
           <p>フォロー数</p>
           <p>{{ Auth::user() -> following_user() -> get() -> count() }} 名
         </p>
         </div>
-        <p class="btn"><a href="/follow-list">フォローリスト</a></p>
-        <div>
+        <p class="btn list-btn"><a href="/follow-list">フォローリスト</a></p>
+        <div class="list-number">
           <p>フォロワー数</p>
           <p>{{ Auth::user() -> followed_user()  -> get() ->count() }} 名</p>
         </div>
-        <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
+        <p class="btn list-btn"><a href="/follower-list">フォロワーリスト</a></p>
       </div>
-      <p class="btn"><a href="/search">ユーザー検索</a></p>
+      <p class="btn search-btn"><a href="/search">ユーザー検索</a></p>
     </div>
   </div>
   <footer>

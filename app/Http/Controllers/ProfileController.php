@@ -49,4 +49,23 @@ class ProfileController extends Controller
         return view('profiles.userprofile',['user' => $user,'post' => $post]);
     }
 
+    public function followerList($id)
+{
+    // プロフィール対象のユーザー
+    $user = User::find($id);
+
+    // フォロワー一覧（UserのCollection）
+    $follower_users = $user->followers;
+
+    // フォロワーの投稿一覧（必要なら取得）
+    $follower_posts = Post::whereIn('user_id', $follower_users->pluck('id'))->get();
+
+    return view('profiles.followerList', [
+        'user' => $user,
+        'follower_users' => $follower_users,
+        'follower_posts' => $follower_posts,
+    ]);
+}
+
+
 }
