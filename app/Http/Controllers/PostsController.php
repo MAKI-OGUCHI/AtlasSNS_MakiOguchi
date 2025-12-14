@@ -36,8 +36,20 @@ class PostsController extends Controller
         Session::put('post', $request->Post);
         return redirect('');
     }
-public function delete($id){
-    Post::where('id',$id)->delete();
-    return redirect('/top');
-}
+    public function delete($id){
+        Post::where('id',$id)->delete();
+        return redirect('/top');
+    }
+    public function updata(Request $request){
+        $request->validate([
+            'edit_post' => 'required|max:150',
+        ]);
+        $postId = $request -> id;
+        // dd($postId);
+        $post = $request->edit_post;
+        Post::where('id',$postId)->update([
+            'post'=>$post
+        ]);
+        return redirect('/top');
+    }
 }
