@@ -27,22 +27,13 @@
 <body>
   <header>
     @include('layouts.navigation')
-    <div id="head">
-      <!-- <h1><a href="/top"><img src="images/atlas.png" alt=""></a></h1> -->
-      <div>
-        <div>
-          <p>{{session('user')}}<img src=>
-          </p>
-        </div>
-      </div>
-    </div>
   </header>
   <!-- Page Content -->
   <div id="row">
     <div id="container">
       {{$slot}}
     </div>
-    <div id="side-bar">
+    <div id="sideBar">
       <div id="confirm">
         <p class="username">{{ Auth::user() -> username }}さんの</p>
         <div class="list-number">
@@ -50,14 +41,14 @@
           <p>{{ Auth::user() -> following_user() -> get() -> count() }} 名
         </p>
         </div>
-        <p class="btn list-btn"><a href="/follow-list">フォローリスト</a></p>
+        <p class="btn_primary list-btn"><a href="/follow-list">フォローリスト</a></p>
         <div class="list-number">
           <p>フォロワー数</p>
           <p>{{ Auth::user() -> followed_user()  -> get() ->count() }} 名</p>
         </div>
-        <p class="btn list-btn"><a href="/follower-list">フォロワーリスト</a></p>
+        <p class="btn_primary list-btn"><a href="/follower-list">フォロワーリスト</a></p>
       </div>
-      <p class="btn search-btn"><a href="/search">ユーザー検索</a></p>
+      <p class="btn_primary search-btn"><a href="/search">ユーザー検索</a></p>
     </div>
   </div>
   <footer>

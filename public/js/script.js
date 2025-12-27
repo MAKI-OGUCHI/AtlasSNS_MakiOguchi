@@ -1,6 +1,6 @@
 $(function () {
   $('.edit').on('click', function () {
-    $('.Modal').fadeIn();
+    $('.modal').fadeIn();
     var post = $(this).attr('post');
     var postId = $(this).attr('postID');
     $('.modal-post').val(post);
@@ -10,8 +10,8 @@ $(function () {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  const menu = document.getElementById('user-menu');
-  const toggle = document.getElementById('user-toggle');
+  const menu = document.getElementById('userMenu');
+  const toggle = document.getElementById('userToggle');
 
   if (!menu || !toggle) return;
 
@@ -36,5 +36,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') close();
+  });
+});
+
+$(function () {
+  // 開く
+  $('.edit').on('click', function () {
+    $('.modal').fadeIn();
+
+    var post = $(this).attr('post');
+    var postId = $(this).attr('post_ID');
+
+    $('.modal_post').val(post);
+    $('.post_ID').val(postId);
+
+    return false;
+  });
+
+  // 背景クリックで閉じる
+  $('.modal_close').on('click', function () {
+    $('.modal').fadeOut();
+  });
+
+  // Escで閉じる
+  $(document).on('keydown', function (e) {
+    if (e.key === 'Escape') $('.modal').fadeOut();
   });
 });

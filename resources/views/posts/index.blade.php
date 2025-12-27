@@ -1,7 +1,8 @@
 <x-login-layout>
-
-
   <div class="post_form">
+    <div class="post_form_icon">
+    <img src="{{ asset('images/' . Auth::user()->icon_image) }}" alt="user icon">
+    </div>
     {{ Form::open(['url' => '/post/create'])}}
 
     {{ Form::input('text' , 'post' , null , ['required' , 'class' => 'form-control' , 'placeholder' => '投稿内容を入力してください。']) }}
@@ -27,8 +28,8 @@
       <a class="delete" href="delete/{{$post->id}}" onclick="return confirm('投稿を削除します')"><img src="/images/trash.png" alt="削除" class="delete-icon"></a>
     </div>
   </div>
-  @endforeach
-  <div class="Modal">
+@endforeach
+  <div class="modal">
      @if($errors->any())
         <div class="alert alert-danger">
           <ul>
@@ -38,17 +39,19 @@
           </ul>
         </div>
     @endif
-    <div class="modalClose"></div>
-    <div class="modal-content">
+    <div class="modal_close"></div>
+    <div class="modal_content">
       <form action="post/{{$post -> id}}/edit" method="post">
         @csrf
-        <textarea name="edit_post" class="modal-post" value=""></textarea>
-        <input type="hidden" name="id" class="postID" value="">
+        <textarea name="edit_post" class="modal_post"></textarea>
+        <input type="hidden" name="id" class="post_ID" value="">
       <button type="submit" class="btn" dataID="{{$post -> id}}" data-post="{{$post -> post}}">
         <img src="/images/edit.png" alt="更新">
       </button>
       {{csrf_field()}}
       </form>
     </div>
+
 </div>
+
 </x-login-layout>
