@@ -1,5 +1,5 @@
 <div id="head">
-  <div class="logo"><a href="/top"><img src="images/atlas.png"></a></div>
+  <div class="logo"><a href="/top"><img src="/images/atlas.png"></a></div>
 
   <div class="header_right">
     <div id="userMenu" class="user_menu">
@@ -13,7 +13,7 @@
 
       <ul id="userDropdown" class="user_dropdown">
         <li><a href="/top">ホーム</a></li>
-        <li><a href="/profile">プロフィール</a></li>
+        <li><a href="/profile">プロフィール編集</a></li>
         <li><a href="/logout">ログアウト</a></li>
       </ul>
     </div>

@@ -401,95 +401,272 @@ header{height:var(--header-height);
             font-size:14px;
             cursor:pointer;}
 
-/* 相手プロフィールページ内 */
-.profile-card{border-bottom:5px solid #b6b5b5;
-              display:flex;
-              align-items:center;
-              gap:16px;
-              padding:18px 20px;
-              margin-bottom:14px;}
-.profile-left{flex:0 0 auto;}
-.avatar{width:48px;
-        height:48px;
-        border-radius:50%;
-        object-fit:cover;
-        display:block;}
-.profile-body{min-width:0;}
-.profile-name{font-weight:700;
-              margin-bottom:6px;}
-.profile-bio{color:#555;
-            font-size:14px;
-            line-height:1.5;
-            word-break:break-word;}
-.profile-action{margin-left:auto;
-                flex:0 0 auto;}
-.btn-follow,
-.btn-unfollow{border:none;
-              padding:10px 14px;
-              border-radius:6px;
-              color:#fff;
-              cursor:pointer;
-              font-size:14px;}
-.btn-follow{ background:#1d6ef0;}
-.btn-unfollow{ background:#e53935;}
-.post-list{border-bottom:2px solid #b6b5b5;
-           display:flex;
-           flex-direction:column;
-           gap:10px;}
-.post-item{display:flex;
-           align-items:flex-start;
-           gap:16px;
-           padding:14px 20px;}
-.post-body{min-width:0;}
-.post-name{font-weight:700;
-           margin-bottom:6px;}
-.post-text{color:#333;
-           font-size:14px;
-           line-height:1.6;
-           word-break:break-word;}
-.post-meta{margin-left:auto;
-           flex:0 0 auto;
-           color:#777;
-           font-size:12px;
-           white-space:nowrap;}
+/* =========================================
+  common
+========================================= */
 
-/* フォロー・フォロワーリスト */
-.list-page h2{margin:8px 0 12px;
-              font-size:28px;
-              font-weight:700;}
-.icons{padding:1.5%;
-       border-bottom:5px solid #ddd;
-       display:flex;
-       flex-wrap:wrap;
-       gap:1%;
-       margin-bottom:2%;}
-.icons a{display: inline-flex;}
-.icons img{width:10%;
-           min-width:32px;
-           aspect-ratio:1/1;
-           border-radius:50%;
-           object-fit:cover;}
-.lists{border-bottom: 1px solid #ddd;}
-.post-live{display:grid;
-           grid-template-columns:8% 1fr auto;
-           gap:2%;
-           align-items:center;
-           padding:2%;
-           border-top: 1px solid #eee;}
-.post-live:first-child{border-top: none;}
-.post-icon{width:100%;
-           aspect-ratio:1/1;
-           border-radius:10%;
-           object-fit:cover;}
-.post-main{min-width:0;}
-.post-user{margin:0 0 0.4em;
-           font-weight:700;}
-.post-text{margin:0;
-           line-height:1.5;
-           color:#333;
-           overflow-wrap:anywhere;}
-.post-time{color:#666;
-           font-size:0.75em;
-           white-space: nowrap;}
-.post-time>p{margin:0;
-             font-size:14px;}
+/* 画像（アイコン） */
+.avatar{
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 長文で横幅が潰れないための共通設定 */
+.profile-body,
+.post-body{
+  min-width: 0;
+}
+
+/* ボタン共通 */
+.btn-follow,
+.btn-unfollow{
+  border: 0;
+  width: 120px;          /* 見本のように幅を揃える */
+  padding: 8px 10px;
+  border-radius: 4px;    /* 見本は角丸控えめ */
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.btn-follow{ background: #1d6ef0; }
+.btn-unfollow{ background: #e53935; }
+
+
+/* =========================
+  common
+========================= */
+.profile_card,
+.post_list {
+  max-width:none;
+  margin: 0 ;
+  width:100%;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================
+  profile
+========================= */
+.profile_card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  border-bottom: 5px solid #b6b5b5;
+}
+
+.profile_left {
+  flex: 0 0 auto;
+}
+
+.profile_body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.profile_name {
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.profile_bio {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.profile_action {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+/* button */
+.btn_follow,
+.btn_unfollow {
+  border: 0;
+  padding: 10px 14px;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.btn_follow { background: #1d6ef0; }
+.btn_unfollow { background: #e53935; }
+
+/* =========================
+  posts
+========================= */
+
+.post_item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.post_left {
+  flex: 0 0 auto;
+}
+
+.post_body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.post_name {
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.post_text {
+  color: #333;
+  font-size: 14px;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.post_meta {
+  flex: 0 0 auto;
+  margin-left: auto;
+  color: #777;
+  font-size: 12px;
+  white-space: nowrap;
+  padding-top: 2px;
+}
+
+
+/* =========================
+  header (title + icons)
+========================= */
+.list_header{
+  display: flex;
+  align-items: center;
+  gap: 16px;          /* タイトルとアイコン群の間隔 */
+  margin-bottom: 12px;
+  border-bottom: 5px solid #ccc;
+}
+
+.list_header h2{
+  margin: 0;
+  white-space: nowrap;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* =========================
+  follow list page
+========================= */
+.list_page h2{
+  margin: 8px 0 12px;
+  font-size: 28px;
+  font-weight:600;
+}
+
+/* =========================
+  follow icons area
+========================= */
+.icons{
+  padding: 1.5%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items:center;
+  flex:1;
+  margin: 0 0 2%;
+}
+
+.icons a{
+  display: inline-flex;
+}
+
+.icons img{
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================
+  posts list
+========================= */
+.lists{
+  border-bottom: 1px solid #999;
+  padding: left 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+               "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+               "Noto Sans JP", Meiryo, sans-serif;
+  color: #333;
+}
+
+/* 1 post row (flex layout) */
+.post_live{
+  display: flex;
+  gap: 2%;
+  align-items: flex-start;
+  padding: 2% 2% 2% 40px;
+  border-top: 1px solid #999;
+}
+
+.post_live:first-child{
+  border-top: 0;
+}
+
+/* left: user icon */
+.post_icon{
+  width: 8%;
+  min-width: 46px;       /* 見本に寄せたいなら入れると安定 */
+  aspect-ratio: 1 / 1;
+  border-radius: 10%;
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
+/* center: username + text */
+.post_main{
+  flex: 1;
+  min-width: 0;
+}
+
+.post_user{
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.post_text{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* right: time */
+.post_time{
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding-right:16px;
+  color: #666;
+  font-size: 14px;        /* ここに統一（em指定は削除） */
+  white-space: nowrap;
+}
+
+.post_time p{
+  margin: 0;
+}
