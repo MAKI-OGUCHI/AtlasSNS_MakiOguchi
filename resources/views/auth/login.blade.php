@@ -9,15 +9,15 @@
   <p class="greet">AtlasSNSへようこそ</p>
 
   <div class="register">
-  {{ Form::label('email') }}
+  {{ Form::label('メールアドレス') }}
   {{ Form::text('email',null,['class' => 'input']) }}
-  {{ Form::label('password') }}
+  {{ Form::label('パスワード') }}
   {{ Form::password('password',['class' => 'input']) }}
   </div>
 
   {{ Form::submit('ログイン',['class'=>'button']) }}
 
-  <p class="greet"><a href="register">新規ユーザーの方はこちら</a></p>
+  <p class="new_user"><a href="register">新規ユーザーの方はこちら</a></p>
 
   {!! Form::close() !!}
   </div>

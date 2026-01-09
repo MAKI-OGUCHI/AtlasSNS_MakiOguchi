@@ -17,7 +17,7 @@
      <div class="form">
     {!! Form::open(['url' => '/register']) !!}
 
-    <p>登録</p>
+    <p>新規ユーザー登録</p>
 
     <div class="register">
     {{ Form::label('ユーザー名') }}
@@ -27,15 +27,16 @@
     {{ Form::email('MailAdress',null,['class' => 'input']) }}
 
     {{ Form::label('パスワード') }}
-    {{ Form::text('Password',null,['class' => 'input']) }}
+    {{ Form::password('Password',null,['class' => 'input']) }}
 
     {{ Form::label('パスワード確認') }}
-    {{ Form::text('PasswordConfirm',null,['class' => 'input']) }}
+    {{ Form::password('PasswordConfirm',null,['class' => 'input']) }}
 
-    {{ Form::submit('登録'),['class' => 'success'] }}
+    {{ Form::submit('新規登録', ['class' => 'success']) }}
+
     </div>
 
-    <p><a href="login">ログイン画面へ戻る</a></p>
+    <p class="back_login"><a href="login">ログイン画面へ戻る</a></p>
 
     {!! Form::close() !!}
     </div>

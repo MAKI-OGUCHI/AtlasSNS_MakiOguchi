@@ -1,54 +1,160 @@
 @charset "UTF-8";
 
-/* html{
-    height: 100%;
-} */
+/* =========================
+  Base
+========================= */
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
+html, body{
+  height: 100%;
+}
 
 body{
-    height: 100%;
-    background:linear-gradient(#2384de,#f5df36);
-    min-height:100vh;
-    background-attachment:fixed;
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(
+    #2384de 10%,
+    #2384de 55%,
+    #f5df36 100%
+  );
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
 }
-label{display: block;
-      margin-bottom:0.5em;}
-input{display: block;
-      margin-bottom:0.5em;}
+
+p{
+  color: #fff;
+  margin: 0;
+}
+
+/* =========================
+  Header
+========================= */
+header{
+  text-align: center;
+  padding-top: 24px;
+}
+
+header .logo{
+  width: 140px;
+  max-width: 70vw;
+  height: auto;
+  display: block;
+  margin: 0 auto 8px;
+}
+
+.sub{
+  text-align: center;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.3;
+  margin-top: 8px;
+}
+
+/* =========================
+  Container (slot wrapper)
+========================= */
+#container{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+/* =========================
+  Form card
+========================= */
 .form{
-    background-color:rgb(0 0 0 /30%);
-    opacity:0.4;
-    align-items:center;
-    justify-content:center;
-    width:20%;
-    height:70%;
-    margin:auto;
-    border-radius:8px;
+  background: rgba(0,0,0,0.25);
+  width: min(260px, 90vw);
+  border-radius: 8px;
+  padding: 18px 12px 6px;
+  margin: 0;
 }
-.form p{text-align: center;}
 
-p{color:#ffffff;}
+.form p:first-of-type{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 14px;
+}
 
-.sub{text-align:center;
-     font-weight: bold;
-     font-size:30px;}
-.greet{text-align:center;
-       color:#ffffff;}
+.form label{
+  display: block;
+  margin: 0 0 4px;
+  font-size: 14px;
+  color: #fff;
+}
 
-.register{padding:10px;}
+.form input{
+  display: block;
+  width: 100%;
+  height: 32px;
+  margin: 0 0 10px;
+}
 
-.form label{color:#ffffff;}
-.form .button{margin-left:65%;
-              background-color:#ed3a50;
-              color: #ffffff;}
+.form .button,
+.form .success{
+  display: block;
+  width: 45%;
+  margin-left: auto;
+  margin-top: 4px;
+  height: 36px;
+  line-height: 36px;
+  padding: 0;
+  text-align: center;
+  background-color: #ed3a50;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: .05em;
+}
 
-h2{color:#ffffff;}
+/* =========================
+  Links
+========================= */
+.back_login{
+  text-align: center;
+  margin-top: 14px;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+.back_login a{
+  color: #fff;
+  text-decoration: underline;
+}
 
-header{text-align:center;}
+.new_user{
+  text-align: center;
+  margin: 18px 0 12px;
+}
 
-.logo{width:20%;
-      margin-top:10%;}
+.new_user a{
+  color: #fff;
+  text-decoration: underline;
+}
 
-.success{margin-left:65%;}
+/* =========================
+  Optional (unused in some pages)
+========================= */
+.greet{
+  text-align: center;
+  color: #fff;
+  margin: 12px 0 18px;
+  font-size: 16px;
+}
+
+.register{
+  padding: 10px 0;
+}
+
 
 #row {
   display: flex;
@@ -56,4 +162,63 @@ header{text-align:center;}
   max-width: 1400px;
   margin: 0 auto;
   margin-top: 20px;
+}
+
+/* =========================
+  Register complete (#clear)
+========================= */
+#container{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#clear{
+  background: rgba(0,0,0,0.25);
+  width: min(320px, 90vw);
+  border-radius: 8px;
+  padding: 18px 16px 16px;
+  text-align: center;
+  color: #fff;
+}
+
+#clear p:first-child{
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+#clear p:nth-child(2){
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  letter-spacing: -0.03em;
+}
+
+#clear p:nth-child(3),
+#clear p:nth-child(4){
+  font-size:16px;
+}
+
+#clear p:nth-child(4){
+  margin-bottom: 18px;
+}
+
+#clear .btn{
+  margin-top: 14px;
+}
+
+#clear .btn a{
+  display: inline-block;
+  width: 45%;
+  min-width: 120px;
+  height: 36px;
+  line-height: 36px;
+  background-color: #ed3a50;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: normal;
+  letter-spacing: .05em;
 }
