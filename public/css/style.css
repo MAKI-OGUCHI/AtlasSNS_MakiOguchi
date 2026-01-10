@@ -7,8 +7,8 @@ header{height:var(--header-height);
 }
 
 :root{
-  --sidebar-width: 350px;   /* サイドバー幅と同じ */
-  --header-height: 90px;    /* ヘッダーの実高さに合わせる */
+  --sidebar-width: 350px;
+  --header-height: 90px;
 }
 
 #head{
@@ -73,10 +73,10 @@ header{height:var(--header-height);
 }
 
 .user_dropdown{
-  position: fixed;                       /* ←ここが肝 */
+  position: fixed;
   right: 0;
-  top: var(--header-height);             /* ヘッダー直下 */
-  width: var(--sidebar-width);           /* サイドバーと同幅 */
+  top: var(--header-height);
+  width: var(--sidebar-width);
   height:auto;
   margin: 0;
   padding: 0;
@@ -97,7 +97,7 @@ header{height:var(--header-height);
   display:flex;
   align-items:center;
   justify-content:center;
-  height: 90px;                 /* 見本っぽい大きさ */
+  height: 90px;
   padding: 0;
   font-weight:700;
   text-decoration:none;
@@ -151,7 +151,6 @@ header{height:var(--header-height);
   font-weight:700;
 }
 
-/* ボタン共通化（⑦対策） */
 .btn_primary{
   display:block;
   border:none;
@@ -274,20 +273,18 @@ header{height:var(--header-height);
 
 /* ===== Modal ===== */
 .modal{
-  display:none;            /* 初期は非表示（JSでfadeIn） */
+  display:none;
   position:fixed;
-  inset:0;                 /* top/right/bottom/left:0 */
+  inset:0;
   z-index:10000;
 }
 
-/* 背景の暗いオーバーレイ */
 .modal .modal_close{
   position:absolute;
   inset:0;
   background:rgba(0,0,0,.35);
 }
 
-/* 白い箱（中央） */
 .modal .modal_content{
   position:absolute;
   top:50%;
@@ -305,7 +302,6 @@ header{height:var(--header-height);
   display:flex;
 }
 
-/* 中身のフォームを箱いっぱいに */
 .modal .modal_content form{
   width:100%;
   height:100%;
@@ -314,7 +310,6 @@ header{height:var(--header-height);
   gap:18px;
 }
 
-/* textareaを大きく */
 .modal .modal_post{
   flex:1;
   width:100%;
@@ -326,7 +321,6 @@ header{height:var(--header-height);
   outline:none;
 }
 
-/* 更新ボタンを下中央へ */
 .modal .modal_content .btn{
   align-self:center;
   border:none;
@@ -340,8 +334,6 @@ header{height:var(--header-height);
   height:56px;
   display:block;
 }
-
-
 
 
 .delete-icon:hover{content: url("/images/trash-h.png");}
@@ -404,8 +396,6 @@ header{height:var(--header-height);
 /* =========================================
   common
 ========================================= */
-
-/* 画像（アイコン） */
 .avatar{
   width: 48px;
   height: 48px;
@@ -414,19 +404,17 @@ header{height:var(--header-height);
   display: block;
 }
 
-/* 長文で横幅が潰れないための共通設定 */
 .profile-body,
 .post-body{
   min-width: 0;
 }
 
-/* ボタン共通 */
 .btn-follow,
 .btn-unfollow{
   border: 0;
-  width: 120px;          /* 見本のように幅を揃える */
+  width: 120px;
   padding: 8px 10px;
-  border-radius: 4px;    /* 見本は角丸控えめ */
+  border-radius: 4px;
   color: #fff;
   cursor: pointer;
   font-size: 13px;
@@ -437,9 +425,6 @@ header{height:var(--header-height);
 .btn-unfollow{ background: #e53935; }
 
 
-/* =========================
-  common
-========================= */
 .profile_card,
 .post_list {
   max-width:none;
@@ -492,7 +477,6 @@ header{height:var(--header-height);
   margin-left: auto;
 }
 
-/* button */
 .btn_follow,
 .btn_unfollow {
   border: 0;
@@ -557,7 +541,7 @@ header{height:var(--header-height);
 .list_header{
   display: flex;
   align-items: center;
-  gap: 16px;          /* タイトルとアイコン群の間隔 */
+  gap: 16px;
   margin-bottom: 12px;
   border-bottom: 5px solid #ccc;
 }
@@ -631,7 +615,7 @@ header{height:var(--header-height);
 /* left: user icon */
 .post_icon{
   width: 8%;
-  min-width: 46px;       /* 見本に寄せたいなら入れると安定 */
+  min-width: 46px;
   aspect-ratio: 1 / 1;
   border-radius: 10%;
   object-fit: cover;
@@ -663,7 +647,7 @@ header{height:var(--header-height);
   margin-left: auto;
   padding-right:16px;
   color: #666;
-  font-size: 14px;        /* ここに統一（em指定は削除） */
+  font-size: 14px;
   white-space: nowrap;
 }
 

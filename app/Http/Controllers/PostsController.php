@@ -48,8 +48,9 @@ class PostsController extends Controller
             'edit_post' => 'required|max:150',
         ]);
         $postId = $request -> id;
-        // dd($postId);
+        dd($postId);
         $post = $request->edit_post;
+        // dd($post);
         Post::where('id',$postId)->update([
             'post'=>$post
         ]);

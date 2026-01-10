@@ -3,8 +3,8 @@ $(function () {
     $('.modal').fadeIn();
     var post = $(this).attr('post');
     var postId = $(this).attr('postID');
-    $('.modal-post').val(post);
-    $('.postID').val(postId);
+    $('.modal_post').val(post);
+    $('.post_ID').val(postId);
     return false;
   });
 });
