@@ -2,7 +2,7 @@ $(function () {
   $('.edit').on('click', function () {
     $('.modal').fadeIn();
     var post = $(this).attr('post');
-    var postId = $(this).attr('postID');
+    var postId = $(this).data('post-id');
     $('.modal_post').val(post);
     $('.post_ID').val(postId);
     return false;

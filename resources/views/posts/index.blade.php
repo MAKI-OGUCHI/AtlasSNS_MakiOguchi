@@ -24,7 +24,9 @@
     </div>
     <div class="post_c">
       <p>{{$post->created_at}}</p>
-      <a class="edit" href="" post="{{$post -> post}}" postID="{{$post -> id}}"><img src="/images/edit.png" alt="編集" class="edit-icon"></a>
+      <a class="edit" href="#" post="{{ $post->post }}" data-post-id="{{ $post->id }}">
+      <img src="/images/edit.png" alt="編集" class="edit-icon">
+      </a>
       <a class="delete" href="delete/{{$post->id}}" onclick="return confirm('投稿を削除します')"><img src="/images/trash.png" alt="削除" class="delete-icon"></a>
     </div>
   </div>
@@ -41,14 +43,13 @@
     @endif
     <div class="modal_close"></div>
     <div class="modal_content">
-      <form action="post/{{$post -> id}}/edit" method="post">
+      <form action="post/edit" method="post">
         @csrf
         <textarea name="edit_post" class="modal_post"></textarea>
         <input type="hidden" name="id" class="post_ID" value="">
-      <button type="submit" class="btn" dataID="{{$post -> id}}" data-post="{{$post -> post}}">
+      <button type="submit" class="btn">
         <img src="/images/edit.png" alt="更新">
       </button>
-      {{csrf_field()}}
       </form>
     </div>
 
