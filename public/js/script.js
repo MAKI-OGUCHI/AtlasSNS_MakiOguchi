@@ -41,17 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 $(function () {
   // 開く
-  $('.edit').on('click', function () {
-    $('.modal').fadeIn();
+  // $('.edit').on('click', function () {
+  //   $('.modal').fadeIn();
 
-    var post = $(this).attr('post');
-    var postId = $(this).attr('post_ID');
+  //   var post = $(this).attr('post');
+  //   var postId = $(this).attr('post_ID');
 
-    $('.modal_post').val(post);
-    $('.post_ID').val(postId);
+  //   $('.modal_post').val(post);
+  //   $('.post_ID').val(postId);
 
-    return false;
-  });
+  //   return false;
+  // });
 
   // 背景クリックで閉じる
   $('.modal_close').on('click', function () {

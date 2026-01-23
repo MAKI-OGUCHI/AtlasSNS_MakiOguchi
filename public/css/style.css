@@ -185,9 +185,9 @@ header{height:var(--header-height);
 .post_form{
   display:flex;
   align-items:center;
-  border-bottom:3px solid #727272;
-  padding:18px 20px;
-  gap:14px;
+  border-bottom:3px solid #e0e0e0;
+  padding:22px 20px;
+  gap:16px;
 }
 
 .post_form_icon img{
@@ -201,19 +201,22 @@ header{height:var(--header-height);
 .post_form form{
   display:flex;
   flex:1;
-  align-items:center;
+  align-items:flex-end;
   width:100%;
   gap:12px;
 }
 
 .form-control{
-  flex:1;
-  height:48px;
-  padding:10px 12px;
-  border:1px solid #e1e1e1;
-  border-radius:6px;
-  background:#fff;
-  border:none;
+  height:80px;
+  padding:14px 16px;
+  border:1px solid #eee;
+  border-radius:10px;
+  outline:none;
+}
+
+.form-control:focus{
+  border-color:#d9d9d9;
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
 }
 
 .post_form button{
@@ -223,6 +226,7 @@ header{height:var(--header-height);
   border:none;
   cursor:pointer;
   padding:0;
+  margin-bottom:4px;
 }
 
 .post_form img{
@@ -258,14 +262,18 @@ header{height:var(--header-height);
 
 .post_c{
   display:flex;
-  align-items:center;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  align-items:flex-start;
   gap:10px;
-  white-space:nowrap;
 }
 
 .post_c p{font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
                "Hiragino Kaku Gothic ProN", "Hiragino Sans",
-               "Noto Sans JP", Meiryo, sans-serif;}
+               "Noto Sans JP", Meiryo, sans-serif;
+          flex: 0 0 100%;
+          text-align:right;
+          margin:0; }
 
 .post_c img{
   width:26px;
@@ -343,21 +351,47 @@ header{height:var(--header-height);
 .delete-icon:hover{content: url("/images/trash-h.png");}
 
 /* 検索ページ */
-/* .container{border-bottom:3px solid #727272;
-           padding:20px;} */
-.search_form{display: flex;
-             align-items: center;
-             border-bottom:3px solid #727272;
-             padding:20px;}
-.search_form button{display: flex;
-                    background-color:transparent;
-                    border: none;
-                    cursor: pointer;
-                    outline: none;
-                    padding: 0;
-                    appearance: none;}
-.search_form img{width:36px;}
-.search_form form{display:flex;}
+.search_form{
+  display:flex;
+  align-items:center;
+  border-bottom:3px solid #e0e0e0;
+  padding:30px;
+  gap:16px;
+}
+
+.search_form form{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.search_form h3{
+  margin:0;
+}
+
+.search_form .form-control{
+  height:44px;
+  width:280px;
+  max-width:100%;
+}
+
+.search_form button{
+  width:44px;
+  height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-color:transparent;
+  border:none;
+  cursor:pointer;
+  padding:0;
+}
+
+.search_form img{
+  width:40px;
+  height:auto;
+}
+
 .users{display: flex;
        align-items: center;
        justify-content: space-between;
@@ -382,7 +416,7 @@ header{height:var(--header-height);
                              box-sizing:border-box;
                              background:#efefef;
                              font-size:14px;}
-.input-file{height:100px;
+.input-file{
             align-items:center;
             border-radius:3px;
             cursor:pointer;}
@@ -536,6 +570,9 @@ header{height:var(--header-height);
   font-size: 12px;
   white-space: nowrap;
   padding-top: 2px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+               "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+               "Noto Sans JP", Meiryo, sans-serif;
 }
 
 

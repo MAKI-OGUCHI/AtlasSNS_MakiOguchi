@@ -24,10 +24,12 @@
     </div>
     <div class="post_c">
       <p>{{$post->created_at}}</p>
+      @if(Auth::id() === $post->user_id)
       <a class="edit" href="#" post="{{ $post->post }}" data-post-id="{{ $post->id }}">
       <img src="/images/edit.png" alt="編集" class="edit-icon">
       </a>
       <a class="delete" href="delete/{{$post->id}}" onclick="return confirm('投稿を削除します')"><img src="/images/trash.png" alt="削除" class="delete-icon"></a>
+      @endif
     </div>
   </div>
 @endforeach

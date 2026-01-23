@@ -40,20 +40,31 @@ class PostsController extends Controller
         return redirect('');
     }
     public function delete($id){
+        $post = Post::findOrFail($id);
+
+    if ($post->user_id !== Auth::id()) {
+        abort(403);
+    }
         Post::where('id',$id)->delete();
         return redirect('/top');
     }
     public function updata(Request $request){
-        $request->validate([
-            'edit_post' => 'required|max:150',
-        ]);
-        $postId = $request -> id;
-        dd($postId);
-        $post = $request->edit_post;
-        // dd($post);
-        Post::where('id',$postId)->update([
-            'post'=>$post
-        ]);
-        return redirect('/top');
+    $request->validate([
+        'edit_post' => 'required|max:150',
+    ]);
+
+    $postId = $request->id;
+
+    $post = Post::findOrFail($postId);
+
+    if ($post->user_id !== Auth::id()) {
+        abort(403);
     }
+
+    $post->post = $request->edit_post;
+    $post->save();
+
+    return redirect('/top');
+}
+
 }
