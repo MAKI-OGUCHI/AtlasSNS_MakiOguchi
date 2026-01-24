@@ -7,13 +7,17 @@
 
     <button type="submit" class="btn"><img src="/images/search.png" alt="検索"></button>
     {{ Form::close() }}
-    <h3>{{$keyword}}</h3>
+    <h3>検索ワード：　{{$keyword}}</h3>
   </div>
 <!-- </div> -->
   <div>
     @foreach($users as $user)
       <div class="users">
-        <img src="{{'images/'. $user->icon_image}}"></img>
+        @if($user->icon_image !== 'icon1.png')
+        <img src="{{asset('/storage/images/'. $user->icon_image)}}"></img>
+        @else
+        <img src="{{asset('images/icon1.png')}}" alt=""></img>
+        @endif
         <p>{{$user->username}}</p>
         @if(!auth()-> user() -> isFollowing($user -> id))
           <form action="{{route('follow',['id' => $user -> id])}}" method="post">

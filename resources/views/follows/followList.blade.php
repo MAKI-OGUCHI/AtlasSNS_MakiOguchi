@@ -5,7 +5,11 @@
       <div class="icons">
         @foreach($follow_users as $follow_user)
         <a href="{{route('userprofile',['id' => $follow_user->id])}}">
-        <img src="{{'images/'. $follow_user->icon_image}}">
+        @if($follow_user->icon_image !== 'icon1.png')
+        <img src="{{asset('/storage/images/'. $follow_user->icon_image)}}"></img>
+        @else
+        <img src="{{asset('images/icon1.png')}}" alt=""></img>
+        @endif
         </a>
        @endforeach
       </div>
@@ -13,7 +17,11 @@
     <div class="lists">
       @foreach($follow_posts as $follow_post)
       <div class="post_live">
-        <img src="{{'images/'. $follow_post->user->icon_image}}">
+        @if($follow_post->user->icon_image !== 'icon1.png')
+        <img src="{{asset('/storage/images/'. $follow_post->user->icon_image)}}"></img>
+        @else
+        <img src="{{asset('images/icon1.png')}}" alt=""></img>
+        @endif
         <div class="post_main">
           <p>{{$follow_post->user->username}}</p>
           <p>{{$follow_post->post}}</p>

@@ -1,7 +1,11 @@
 <x-login-layout>
   <div class="post_form">
     <div class="post_form_icon">
-    <img src="{{ asset('images/' . Auth::user()->icon_image) }}" alt="user icon">
+    @if(Auth::user() -> icon_image !== 'icon1.png')
+      <img src="{{asset('/storage/images/'. Auth::user() ->icon_image)}}"></img>
+      @else
+      <img src="{{asset('images/icon1.png')}}" alt=""></img>
+      @endif
     </div>
     {{ Form::open(['url' => '/post/create'])}}
 
@@ -14,7 +18,11 @@
   @foreach($posts as $post)
   <div class="post">
     <div class="post_a">
-      <img src="{{'images/'. $post->user->icon_image}}"></img>
+      @if($post->user->icon_image !== 'icon1.png')
+      <img src="{{asset('/storage/images/'. $post->user->icon_image)}}"></img>
+      @else
+      <img src="{{asset('images/icon1.png')}}" alt=""></img>
+      @endif
     </div>
     <div class="post_b">
       <div class="post_username">

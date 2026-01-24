@@ -6,9 +6,13 @@
       <button type="button" id="userToggle" class="user_toggle" aria-expanded="false">
         {{ Auth::user()->username }}　さん
         <span class="arrow"></span>
-        <img class="header_user_icon"
-       src="{{ asset('images/' . Auth::user()->icon_image) }}"
-       alt="user icon">
+        <div class="icon_box">
+          @if(Auth::user() -> icon_image !== 'icon1.png')
+          <img src="{{asset('/storage/images/'. Auth::user() ->icon_image)}}"></img>
+          @else
+          <img src="{{asset('images/icon1.png')}}" alt=""></img>
+          @endif
+        </div>
       </button>
 
       <ul id="userDropdown" class="user_dropdown">

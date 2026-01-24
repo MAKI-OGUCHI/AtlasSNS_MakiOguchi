@@ -51,6 +51,14 @@ header{height:var(--header-height);
   font-size:20px;
 }
 
+.icon_box{width:44px;
+ height:44px;
+border-radius:50%;}
+.icon_box img{width:44px;
+ height:44px;
+border-radius:50%;
+  object-fit:cover;}
+
 .arrow{
   display:inline-block;
   width:12px;
@@ -366,7 +374,8 @@ header{height:var(--header-height);
 }
 
 .search_form h3{
-  margin:0;
+  margin-left:12%;
+  font-size:18px;
 }
 
 .search_form .form-control{
@@ -396,7 +405,10 @@ header{height:var(--header-height);
        align-items: center;
        justify-content: space-between;
        padding-top:20px;}
-.users img{margin-left:30%;}
+.users img{width:44px;
+  height:44px;
+  border-radius:50%;
+  margin-left:30%;}
 .users p{margin:auto;
          font-weight: bold;}
 .users form{margin-right:30%;}
@@ -405,6 +417,7 @@ header{height:var(--header-height);
 .form{width:55%;
       margin:40px auto;
       font-size:14px;}
+.form li{color:red;}
 .form-group{display:flex;
             align-items:center;
             margin-bottom:20px;}
@@ -647,6 +660,12 @@ header{height:var(--header-height);
   align-items: flex-start;
   padding: 2% 2% 2% 40px;
   border-top: 1px solid #999;
+}
+
+.post_live img{
+  width:44px;
+  height:44px;
+  border-radius:50%;
 }
 
 .post_live:first-child{
