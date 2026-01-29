@@ -30,7 +30,7 @@ Route::get('profile', [ProfileController::class, 'profile']);
 Route::post('edit',[ProfileController::class,'edit']);
 Route::post('post/edit',[PostsController::class,'updata']);
 
-Route::post('search', [UsersController::class, 'search']);
+Route::get('search', [UsersController::class, 'search']);
 //Route::post('userSearch',[UsersController::class,'userSearch']);
 
 Route::get('follow-list', [FollowsController::class, 'followList']);
